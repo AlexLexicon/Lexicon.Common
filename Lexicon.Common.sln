@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{875CFC9F-319
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{DE04B82A-E18B-48DC-AF35-5CBEE3978B99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.Dialogs", "Lexicon.Common.Wpf.Dialogs\Lexicon.Common.Wpf.Dialogs.csproj", "{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{856543E0-80BB-49EB-BC1F-91889A1BB8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{856543E0-80BB-49EB-BC1F-91889A1BB8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{856543E0-80BB-49EB-BC1F-91889A1BB8B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{FA50840B-C6C5-4B87-A7AF-B1AAB83488FE} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 		{A9929B8C-C8E8-4AB7-9C9C-A4C7FFD23F4E} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 		{856543E0-80BB-49EB-BC1F-91889A1BB8B0} = {DE04B82A-E18B-48DC-AF35-5CBEE3978B99}
+		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A452E06-DB9F-4BBD-A692-4D36869CEB9B}
