@@ -1,0 +1,21 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <c:ToVisibilityConverter x:Key="CommonWpfControlsResources_Converter_To_Visibility"/>
+    <c:ToBooleanConverter x:Key="CommonWpfControlsResources_Converter_To_Booleans"/>
+
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Enabled_Foreground" Color="Black"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_MouseOver_Background" Color="#FFBEE6FD"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_MouseOver_Border" Color="#FF3C7FB1"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Pressed_Background" Color="#FFC4E5F6"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Pressed_Border" Color="#FF2C628B"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Disabled_Background" Color="#FFF4F4F4"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Disabled_Border" Color="#FFADB2B5"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Disabled_Foreground" Color="#FF838383"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Checked_Background" Color="#FFBCDDEE"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Checked_Border" Color="#FF245A83"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_TextBox_MouseOver_Border" Color="#FF7EB4EA"/>
+    <SolidColorBrush x:Key="CommonWpfControlsResources_TextBox_Focus_Border" Color="#FF569DE5"/>
+
+</ResourceDictionary>
