@@ -6,15 +6,15 @@ public static class Window
     /*
      * IsMaximized
      */
-    public static readonly DependencyProperty IsMaximizedProperty = DependencyProperty.RegisterAttached("IsMaximized", typeof(bool), typeof(Window), new PropertyMetadata(false, OnIsMaximized_Window_PropertyChanged, OnIsMaximizedCoerceValue_Window_Callback));
+    public static readonly DependencyProperty IsMaximizedProperty = DependencyProperty.RegisterAttached("IsMaximized", typeof(bool), typeof(Window), new PropertyMetadata(false, OnIsMaximized_Window_PropertyChanged, OnIsMaximized_Window_CoerceValueCallback));
     public static bool GetIsMaximized(DependencyObject obj) => (bool)obj.GetValue(IsMaximizedProperty);
     public static void SetIsMaximized(DependencyObject obj, bool value) => obj.SetValue(IsMaximizedProperty, value);
     private static void OnIsMaximized_Window_PropertyChanged(object sender, DependencyPropertyChangedEventArgs args)
     {
         if (sender is System.Windows.Window window && args.NewValue is bool newIsMaximized)
         {
-            window.SizeChanged -= OnIsMaximizedChanged_Window_SizeChanged;
-            window.SizeChanged += OnIsMaximizedChanged_Window_SizeChanged;
+            window.SizeChanged -= OnIsMaximized_Window_SizeChanged;
+            window.SizeChanged += OnIsMaximized_Window_SizeChanged;
 
             bool currentIsMaximized = window.WindowState == WindowState.Maximized;
 
@@ -24,7 +24,7 @@ public static class Window
             }
         }
     }
-    private static void OnIsMaximizedChanged_Window_SizeChanged(object sender, SizeChangedEventArgs e)
+    private static void OnIsMaximized_Window_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         if (sender is System.Windows.Window window)
         {
@@ -37,7 +37,7 @@ public static class Window
             }
         }
     }
-    private static object? OnIsMaximizedCoerceValue_Window_Callback(DependencyObject d, object baseValue)
+    private static object? OnIsMaximized_Window_CoerceValueCallback(DependencyObject d, object baseValue)
     {
         if (d is System.Windows.Window window)
         {
