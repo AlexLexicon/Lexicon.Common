@@ -42,6 +42,9 @@ jobs:
     - name: Pack Wpf.DependencyInjection
       run: dotnet pack Lexicon.Common.Wpf.DependencyInjection/Lexicon.Common.Wpf.DependencyInjection.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
       
+    - name: Pack Wpf.DependencyInjection.Abstractions
+      run: dotnet pack Lexicon.Common.Wpf.DependencyInjection.Abstractions/Lexicon.Common.Wpf.DependencyInjection.Abstractions.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+
     - name: Pack Wpf.Dialogs
       run: dotnet pack Lexicon.Common.Wpf.Dialogs/Lexicon.Common.Wpf.Dialogs.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
       

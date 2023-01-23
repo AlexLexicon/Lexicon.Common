@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\pipelines.yml = .github\workflows\pipelines.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.DependencyInjection.Abstractions", "Lexicon.Common.Wpf.DependencyInjection.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Abstractions.csproj", "{F96E2781-6EE5-4AE5-BEEE-73B36D60614A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F96E2781-6EE5-4AE5-BEEE-73B36D60614A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F96E2781-6EE5-4AE5-BEEE-73B36D60614A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F96E2781-6EE5-4AE5-BEEE-73B36D60614A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F96E2781-6EE5-4AE5-BEEE-73B36D60614A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{856543E0-80BB-49EB-BC1F-91889A1BB8B0} = {DE04B82A-E18B-48DC-AF35-5CBEE3978B99}
 		{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 		{16287E60-1BD3-441D-8160-BC41B8CFAD25} = {04E9882D-DC5B-4BCD-935A-68ACD8253C84}
+		{F96E2781-6EE5-4AE5-BEEE-73B36D60614A} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A452E06-DB9F-4BBD-A692-4D36869CEB9B}

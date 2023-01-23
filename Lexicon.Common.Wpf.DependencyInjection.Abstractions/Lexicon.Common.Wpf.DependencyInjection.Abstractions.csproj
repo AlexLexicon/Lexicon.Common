@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+
+		<Authors>Alex Stroot</Authors>
+		<Description>Abstractions for 'Lexicon.Common.Wpf.DependencyInjection'. Does not require a Wpf Windows context.</Description>
+		<Copyright>2023</Copyright>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Wpf.DependencyInjection.Abstractions</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>wpf, dependencyinjection</PackageTags>
+	</PropertyGroup>
+
+</Project>

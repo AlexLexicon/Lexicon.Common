@@ -1,11 +1,8 @@
-﻿using System.Configuration;
+﻿using Lexicon.Common.Wpf.DependencyInjection.Abstractions.Services;
+using System.Configuration;
 using System.Reflection;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Services;
-public interface ISettingsService
-{
-    Task Save<T>(T configuration) where T : class;
-}
 public class SettingsService : ISettingsService
 {
     private readonly ApplicationSettingsBase? _settings;
