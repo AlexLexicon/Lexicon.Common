@@ -45,9 +45,6 @@ jobs:
     - name: Pack Wpf.Dialogs
       run: dotnet pack Lexicon.Common.Wpf.Dialogs/Lexicon.Common.Wpf.Dialogs.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
       
-    - name: Pack Wpf.Mvvm
-      run: dotnet pack Lexicon.Common.Wpf.Mvvm/Lexicon.Common.Wpf.Mvvm.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
-      
     - name: Pack Wpf.ValueConverters
       run: dotnet pack Lexicon.Common.Wpf.ValueConverters/Lexicon.Common.Wpf.ValueConverters.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
       
