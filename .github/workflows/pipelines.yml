@@ -14,7 +14,7 @@ jobs:
     steps:          
     - uses: actions/checkout@v2
     
-    - name: Setup
+    - name: Install .NET 7
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 7.x
