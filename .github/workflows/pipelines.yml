@@ -1,0 +1,56 @@
+name: Build and Publish Nuget Packages
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:          
+    - uses: actions/checkout@v2
+    
+    - name: Install .NET 7
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 7.x
+        
+    - name: Restore
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    #DependencyInjection
+    - name: Pack DependencyInjection
+      run: dotnet pack Lexicon.Common.DependencyInjection/Lexicon.Common.DependencyInjection.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    #Wpf
+    - name: Pack Wpf
+      run: dotnet pack Lexicon.Common.Wpf/Lexicon.Common.Wpf.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    - name: Pack Wpf.AttachedProperties
+      run: dotnet pack Lexicon.Common.Wpf.AttachedProperties/Lexicon.Common.Wpf.AttachedProperties.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    - name: Pack Wpf.Controls
+      run: dotnet pack Lexicon.Common.Wpf.Controls/Lexicon.Common.Wpf.Controls.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    - name: Pack Wpf.DependencyInjection
+      run: dotnet pack Lexicon.Common.Wpf.DependencyInjection/Lexicon.Common.Wpf.DependencyInjection.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    - name: Pack Wpf.Dialogs
+      run: dotnet pack Lexicon.Common.Wpf.Dialogs/Lexicon.Common.Wpf.Dialogs.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    - name: Pack Wpf.Mvvm
+      run: dotnet pack Lexicon.Common.Wpf.Mvvm/Lexicon.Common.Wpf.Mvvm.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    - name: Pack Wpf.ValueConverters
+      run: dotnet pack Lexicon.Common.Wpf.ValueConverters/Lexicon.Common.Wpf.ValueConverters.csproj --configuration Release --no-build /p:Version=7.0.$env:GITHUB_RUN_NUMBER
+      
+    - name: Push
+      run: dotnet nuget push */**/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
+      
