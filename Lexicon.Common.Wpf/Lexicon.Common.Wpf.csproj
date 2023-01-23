@@ -8,12 +8,16 @@
 		<UseWPF>true</UseWPF>
 
 		<Authors>Alex Stroot</Authors>
-		<Description>A library of common classes and extensions for Wpf.</Description>
+		<Description>A library of common classes and extensions for Wpf. Extends 'Microsoft.Xaml.Behaviors.Wpf'.</Description>
 		<Copyright>2023</Copyright>
 		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Wpf</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
 		<RepositoryType>github</RepositoryType>
 		<PackageTags>wpf</PackageTags>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+	</ItemGroup>
 
 </Project>

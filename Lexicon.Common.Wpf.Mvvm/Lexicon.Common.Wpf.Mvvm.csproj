@@ -5,10 +5,9 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
-		<UseWPF>true</UseWPF>
 
 		<Authors>Alex Stroot</Authors>
-		<Description>A library of common classes and extensions for Mvvm development with Wpf. Extends the 'CommunityToolkit.Mvvm' and incldudes 'Microsoft.Xaml.Behaviors.Wpf'.</Description>
+		<Description>A library of common classes and extensions for Mvvm development with Wpf. Extends 'CommunityToolkit.Mvvm'.</Description>
 		<Copyright>2023</Copyright>
 		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Wpf.Mvvm</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
@@ -18,7 +17,6 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
-	  <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
 	</ItemGroup>
 
 </Project>
