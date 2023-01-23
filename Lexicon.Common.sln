@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.Dialogs"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{04E9882D-DC5B-4BCD-935A-68ACD8253C84}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{16287E60-1BD3-441D-8160-BC41B8CFAD25}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{16287E60-1BD3-441D-8160-BC41B8CFAD25}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\pipelines.yml = .github\workflows\pipelines.yml
 	EndProjectSection
