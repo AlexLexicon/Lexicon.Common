@@ -1,10 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
+
+		<Authors>Alex Stroot</Authors>
+		<Description>A library of common extensions for 'Microsoft.Extensions.DependencyInjection'.</Description>
+		<Copyright>2023</Copyright>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.DependencyInjection</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>dependencyinjection</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
