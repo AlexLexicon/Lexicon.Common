@@ -23,4 +23,11 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Pack DependencyInjection
+      run: dotnet pack ~/Lexicon.Common.DependencyInjection.csproj --configuration Release --no-build /p:Version=7.0.$(rev:r)
+      
+    - name: Push
+      run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }}
+      
