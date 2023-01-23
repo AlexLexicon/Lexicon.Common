@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:Lexicon.Common.Wpf.ValueConverters;assembly=Lexicon.Common.Wpf.ValueConverters">
 
-    <c:ToVisibilityConverter x:Key="CommonWpfControlsResources_Converter_To_Visibility"/>
-    <c:ToBooleanConverter x:Key="CommonWpfControlsResources_Converter_To_Booleans"/>
+    <c:ToBooleanConverter x:Key="CommonWpfControlsResources_Converter_ToBoolean"/>
+    <c:ToVisibilityConverter x:Key="CommonWpfControlsResources_Converter_ToVisibility"/>
 
     <SolidColorBrush x:Key="CommonWpfControlsResources_Button_Enabled_Foreground" Color="Black"/>
     <SolidColorBrush x:Key="CommonWpfControlsResources_Button_MouseOver_Background" Color="#FFBEE6FD"/>
