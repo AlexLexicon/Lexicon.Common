@@ -1,4 +1,5 @@
-﻿using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Exceptions;
+﻿using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions;
+using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Exceptions;
 using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Factories;
 using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Accessors;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,17 +14,27 @@ public class DataContextFactory : IDataContextFactory
 
         var dataContextAndElementAccessor = serviceProvider.GetService<DataContextAndElementAccessor<TDataContext>>();
 
+        TDataContext dataContext;
         if (dataContextAndElementAccessor is null)
         {
             //there will only be a DataContextAndElementAccessor
             //if the 'ForElement' method was called when 
             //adding the DataContext to the services
-            return serviceProvider.GetRequiredService<TDataContext>();
+            dataContext = serviceProvider.GetRequiredService<TDataContext>();
+        }
+        else
+        {
+            //in this case the Framework element
+            //will have also been constructed
+            dataContext = dataContextAndElementAccessor.DataContext;
         }
 
-        //in this case the Framework element
-        //will have also been constructed
-        return dataContextAndElementAccessor.DataContext;
+        if (dataContext is IDataContextCreate dataContextCreate)
+        {
+            dataContextCreate.Create();
+        }
+
+        return dataContext;
     }
     internal static (TDataContext dataContext, Window window) GetCreateAndShowDataContextAndElementAccessor<TDataContext>(IServiceProvider serviceProvider) where TDataContext : class
     {
@@ -39,6 +50,11 @@ public class DataContextFactory : IDataContextFactory
         if (dataContextAndElementAccessor.Element is not Window window)
         {
             throw new DataContextAssociatedElementCannotShowException(typeof(TDataContext));
+        }
+
+        if (dataContextAndElementAccessor.DataContext is IDataContextCreate dataContextCreate)
+        {
+            dataContextCreate.Create();
         }
 
         return (dataContext: dataContextAndElementAccessor.DataContext, window);
