@@ -3,5 +3,5 @@
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions;
 public interface IDataContextShow
 {
-    ICommand ShowCommand { set; }
+    ICommand? ShowCommand { set; }
 }

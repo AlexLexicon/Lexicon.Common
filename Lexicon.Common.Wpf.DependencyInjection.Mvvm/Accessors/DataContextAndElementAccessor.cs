@@ -6,7 +6,7 @@ using System.Windows;
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Accessors;
 public interface IDataContextAndElementAccessor<TDataContext> where TDataContext : class
 {
-    public TDataContext DataContext { get; }
+    public TDataContext? DataContext { get; }
     public FrameworkElement? Element { get; }
     void AssignDataContext(FrameworkElement frameworkElement);
 }
