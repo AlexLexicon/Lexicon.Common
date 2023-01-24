@@ -29,7 +29,7 @@ public class DataContextFactory : IDataContextFactory
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
-        var dataContextAndElementAccessor = serviceProvider.GetRequiredService<DataContextAndElementAccessor<TDataContext>>();
+        var dataContextAndElementAccessor = serviceProvider.GetService<DataContextAndElementAccessor<TDataContext>>();
 
         if (dataContextAndElementAccessor is null)
         {

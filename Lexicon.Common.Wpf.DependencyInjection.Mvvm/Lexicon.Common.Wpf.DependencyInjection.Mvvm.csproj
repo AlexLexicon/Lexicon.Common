@@ -11,7 +11,7 @@
 		<Authors>Alex Stroot</Authors>
 		<Description>A library of common extensions for 'Microsoft.Extensions.DependencyInjection' that integrates with Wpf. Extends 'Lexicon.Common.Wpf.DependencyInjection' by adding additional features focused on Mvvm patterns.</Description>
 		<Copyright>2023</Copyright>
-		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Wpf.DependencyInjection</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Wpf.DependencyInjection.Mvvm</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
 		<RepositoryType>github</RepositoryType>
 		<PackageTags>wpf, dependencyinjection</PackageTags>
