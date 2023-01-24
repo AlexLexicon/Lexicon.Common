@@ -8,15 +8,20 @@ public sealed class WpfApplicationBuilder
     private readonly IServiceCollection _services;
     private readonly ConfigurationManager _configurationManager;
 
-    internal WpfApplicationBuilder(Application app)
+    internal WpfApplicationBuilder(Application appxaml)
     {
-        ArgumentNullException.ThrowIfNull(app);
+        ArgumentNullException.ThrowIfNull(appxaml);
 
         _services = new ServiceCollection();
         _configurationManager = new ConfigurationManager();
 
-        _services.AddSingleton(app);
-        _services.AddSingleton(app.Dispatcher);
+        //we need the service provider for the DataContextFactory
+        //maybe this isnt the best solution
+        //however I dont want to have to inject many DataContextFactories<T>
+        //for each type of DataContext. Instead just using IDataContextFactory is nice
+        _services.AddSingleton(sp => sp);
+        _services.AddSingleton(appxaml);
+        _services.AddSingleton(appxaml.Dispatcher);
     }
 
     public IServiceCollection Services => _services;

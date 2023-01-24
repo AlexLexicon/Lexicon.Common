@@ -5,16 +5,16 @@ using System.Reflection;
 namespace Lexicon.Common.Wpf.DependencyInjection.Services;
 public class SettingsService : ISettingsService
 {
-    private readonly ApplicationSettingsBase? _settings;
+    private readonly ApplicationSettingsBase _settings;
 
-    public SettingsService(ApplicationSettingsBase? settings)
+    public SettingsService(ApplicationSettingsBase settings)
     {
         _settings = settings;
     }
 
     public Task Save<T>(T? configuration) where T : class
     {
-        if (_settings is not null && configuration is not null)
+        if (configuration is not null)
         {
             List<ConfigProperty> configProperties = GetConfigProperties(typeof(T).Name, configuration);
 

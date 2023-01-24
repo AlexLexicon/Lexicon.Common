@@ -48,62 +48,58 @@ public static class Window
     }
 
     /*
-     * ToggleInvokeShow
+     * ShowAction
      */
-    public static readonly DependencyProperty ToggleInvokeShowProperty = DependencyProperty.RegisterAttached("ToggleShow", typeof(bool), typeof(Window), new PropertyMetadata(OnToggleInvokeShow_Window_PropertyChanged));
-    public static bool GetToggleShow(DependencyObject obj) => (bool)obj.GetValue(ToggleInvokeShowProperty);
-    public static void SetToggleShow(DependencyObject obj, bool value) => obj.SetValue(ToggleInvokeShowProperty, value);
-    private static void OnToggleInvokeShow_Window_PropertyChanged(object sender, DependencyPropertyChangedEventArgs args)
+    public static readonly DependencyProperty ShowActionProperty = DependencyProperty.RegisterAttached("ShowAction", typeof(Action), typeof(Window), new PropertyMetadata(OnShowAction_Window_PropertyChanged));
+    public static Action GetShowAction(DependencyObject obj) => (Action)obj.GetValue(ShowActionProperty);
+    public static void SetShowAction(DependencyObject obj, Action value) => obj.SetValue(ShowActionProperty, value);
+    private static void OnShowAction_Window_PropertyChanged(object sender, DependencyPropertyChangedEventArgs args)
     {
-        if (sender is System.Windows.Window window && args.NewValue is bool isInvoked && isInvoked)
+        if (sender is System.Windows.Window window && args.NewValue is Action)
         {
-            window.Show();
-            SetToggleShow(window, false);
+            SetShowAction(window, window.Show);
         }
     }
 
     /*
-     * ToggleInvokeClose
+     * CloseAction
      */
-    public static readonly DependencyProperty ToggleInvokeCloseProperty = DependencyProperty.RegisterAttached("ToggleClose", typeof(bool), typeof(Window), new PropertyMetadata(OnToggleInvokeClose_Window_PropertyChanged));
-    public static bool GetToggleClose(DependencyObject obj) => (bool)obj.GetValue(ToggleInvokeCloseProperty);
-    public static void SetToggleClose(DependencyObject obj, bool value) => obj.SetValue(ToggleInvokeCloseProperty, value);
-    private static void OnToggleInvokeClose_Window_PropertyChanged(object sender, DependencyPropertyChangedEventArgs args)
+    public static readonly DependencyProperty CloseActionProperty = DependencyProperty.RegisterAttached("CloseAction", typeof(Action), typeof(Window), new PropertyMetadata(OnCloseAction_Window_PropertyChanged));
+    public static Action GetCloseAction(DependencyObject obj) => (Action)obj.GetValue(CloseActionProperty);
+    public static void SetCloseAction(DependencyObject obj, Action value) => obj.SetValue(CloseActionProperty, value);
+    private static void OnCloseAction_Window_PropertyChanged(object sender, DependencyPropertyChangedEventArgs args)
     {
-        if (sender is System.Windows.Window window && args.NewValue is bool isInvoked && isInvoked)
+        if (sender is System.Windows.Window window && args.NewValue is Action)
         {
-            window.Close();
-            SetToggleClose(window, false);
+            SetCloseAction(window, window.Close);
         }
     }
 
     /*
-     * ToggleInvokeHide
+     * HideAction
      */
-    public static readonly DependencyProperty ToggleInvokeHideProperty = DependencyProperty.RegisterAttached("ToggleHide", typeof(bool), typeof(Window), new PropertyMetadata(OnToggleInvokeHide_Window_PropertyChanged));
-    public static bool GetToggleHide(DependencyObject obj) => (bool)obj.GetValue(ToggleInvokeCloseProperty);
-    public static void SetToggleHide(DependencyObject obj, bool value) => obj.SetValue(ToggleInvokeCloseProperty, value);
-    private static void OnToggleInvokeHide_Window_PropertyChanged(object sender, DependencyPropertyChangedEventArgs args)
+    public static readonly DependencyProperty HideActionProperty = DependencyProperty.RegisterAttached("HideAction", typeof(Action), typeof(Window), new PropertyMetadata(OnHideAction_Window_PropertyChanged));
+    public static Action GetHideAction(DependencyObject obj) => (Action)obj.GetValue(CloseActionProperty);
+    public static void SetHideAction(DependencyObject obj, Action value) => obj.SetValue(CloseActionProperty, value);
+    private static void OnHideAction_Window_PropertyChanged(object sender, DependencyPropertyChangedEventArgs args)
     {
         if (sender is System.Windows.Window window && args.NewValue is bool isInvoked && isInvoked)
         {
-            window.Hide();
-            SetToggleHide(window, false);
+            SetHideAction(window, window.Hide);
         }
     }
 
     /*
-     * ToggleInvokeShowDialog
+     * ShowDialogAction
      */
-    public static readonly DependencyProperty ToggleInvokeShowDialogProperty = DependencyProperty.RegisterAttached("ToggleShowDialog", typeof(bool), typeof(Window), new PropertyMetadata(OnToggleInvokeShowDialog_Window_ProeprtyChanged));
-    public static bool GetToggleShowDialog(DependencyObject obj) => (bool)obj.GetValue(ToggleInvokeShowDialogProperty);
-    public static void SetToggleShowDialog(DependencyObject obj, bool value) => obj.SetValue(ToggleInvokeShowDialogProperty, value);
-    private static void OnToggleInvokeShowDialog_Window_ProeprtyChanged(object sender, DependencyPropertyChangedEventArgs args)
+    public static readonly DependencyProperty ShowDialogActionProperty = DependencyProperty.RegisterAttached("ShowDialogAction", typeof(Action), typeof(Window), new PropertyMetadata(OnShowDialogAction_Window_ProeprtyChanged));
+    public static Action GetShowDialogAction(DependencyObject obj) => (Action)obj.GetValue(ShowDialogActionProperty);
+    public static void SetShowDialogAction(DependencyObject obj, Action value) => obj.SetValue(ShowDialogActionProperty, value);
+    private static void OnShowDialogAction_Window_ProeprtyChanged(object sender, DependencyPropertyChangedEventArgs args)
     {
-        if (sender is System.Windows.Window window && args.NewValue is bool isInvoked && isInvoked)
+        if (sender is System.Windows.Window window && args.NewValue is Action)
         {
-            window.ShowDialog();
-            SetToggleShowDialog(window, false);
+            SetShowDialogAction(window, () => window.ShowDialog());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Lexicon.Common.Wpf.Dialogs;
+﻿namespace Lexicon.Common.Wpf.Dialogs.Options;
 public class OpenFileOptions
 {
     public string? Title { get; set; } = "Open File";

@@ -8,6 +8,8 @@ public class SettingsConfigurationSource : IConfigurationSource
     public ApplicationSettingsBase? Settings { get; set; }
     public IConfigurationProvider Build(IConfigurationBuilder builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         return new SettingsConfigurationProvider(Settings);
     }
 }
