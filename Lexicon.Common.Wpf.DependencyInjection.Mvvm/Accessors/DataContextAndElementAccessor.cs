@@ -10,7 +10,7 @@ public interface IDataContextAndElementAccessor<TDataContext> where TDataContext
     public FrameworkElement? Element { get; }
     void AssignDataContext(FrameworkElement frameworkElement);
 }
-public class DataContextAndElementAccessor<TDataContext> where TDataContext : class
+public class DataContextAndElementAccessor<TDataContext> : IDataContextAndElementAccessor<TDataContext> where TDataContext : class
 {
     public DataContextAndElementAccessor(TDataContext dataContext)
     {
