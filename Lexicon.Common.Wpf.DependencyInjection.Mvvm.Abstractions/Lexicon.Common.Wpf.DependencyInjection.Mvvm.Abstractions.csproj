@@ -7,7 +7,6 @@
 		<Nullable>enable</Nullable>
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageOutputPath>$(SolutionDir)/build/packages</PackageOutputPath>
 		<Authors>Alex Stroot</Authors>
 		<Description>Abstractions for 'Lexicon.Common.Wpf.DependencyInjection.Mvvm'. Does not require a Wpf Windows context. Extends the 'CommunityToolkit.Mvvm' package.</Description>
 		<Copyright>2023</Copyright>

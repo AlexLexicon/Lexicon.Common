@@ -8,7 +8,6 @@
 		<UseWPF>true</UseWPF>
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageOutputPath>$(SolutionDir)/build/packages</PackageOutputPath>
 		<Authors>Alex Stroot</Authors>
 		<Description>A library of common classes and extensions for Wpf. Extends 'Microsoft.Xaml.Behaviors.Wpf'.</Description>
 		<Copyright>2023</Copyright>

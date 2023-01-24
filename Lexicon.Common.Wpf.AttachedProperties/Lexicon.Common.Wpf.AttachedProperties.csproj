@@ -8,7 +8,6 @@
 		<UseWPF>true</UseWPF>
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageOutputPath>$(SolutionDir)/build/packages</PackageOutputPath>
 		<Authors>Alex Stroot</Authors>
 		<Description>A library of common attached properties for Wpf.</Description>
 		<Copyright>2023</Copyright>

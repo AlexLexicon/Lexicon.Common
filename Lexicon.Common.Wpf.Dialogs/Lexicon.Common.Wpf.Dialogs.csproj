@@ -8,7 +8,6 @@
 		<UseWPF>true</UseWPF>
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageOutputPath>$(SolutionDir)/build/packages</PackageOutputPath>
 		<Authors>Alex Stroot</Authors>
 		<Description>A library that extends the 'Microsoft-WindowsAPICodePack-Shell' file and directory Windows dialogs for Wpf.</Description>
 		<Copyright>2023</Copyright>
