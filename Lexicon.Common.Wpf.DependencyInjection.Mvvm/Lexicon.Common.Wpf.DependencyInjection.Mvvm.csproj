@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net7.0-windows</TargetFramework>
@@ -7,6 +7,8 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageOutputPath>$(SolutionDir)/build/packages</PackageOutputPath>
 		<Authors>Alex Stroot</Authors>
 		<Description>A library of common extensions for 'Microsoft.Extensions.DependencyInjection' that integrates with Wpf. Extends 'Lexicon.Common.Wpf.DependencyInjection' by adding additional features focused on Mvvm patterns.</Description>
 		<Copyright>2023</Copyright>
