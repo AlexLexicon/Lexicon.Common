@@ -12,47 +12,47 @@ public class SettingsService : ISettingsService
         _settings = settings;
     }
 
-    public Task Save<T>(string key, bool value) => SaveSet(key, value);
-    public Task Save<T>(string key, bool? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, byte value) => SaveSet(key, value);
-    public Task Save<T>(string key, byte? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, char value) => SaveSet(key, value);
-    public Task Save<T>(string key, char? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, decimal value) => SaveSet(key, value);
-    public Task Save<T>(string key, decimal? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, double value) => SaveSet(key, value);
-    public Task Save<T>(string key, double? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, float value) => SaveSet(key, value);
-    public Task Save<T>(string key, float? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, int value) => SaveSet(key, value);
-    public Task Save<T>(string key, int? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, long value) => SaveSet(key, value);
-    public Task Save<T>(string key, long? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, sbyte value) => SaveSet(key, value);
-    public Task Save<T>(string key, sbyte? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, short value) => SaveSet(key, value);
-    public Task Save<T>(string key, short? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, string? value) => SaveSet(key, value);
-    public Task Save<T>(string key, System.Collections.Specialized.StringCollection? value) => SaveSet(key, value);
-    public Task Save<T>(string key, DateTime value) => SaveSet(key, value);
-    public Task Save<T>(string key, DateTime? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, System.Drawing.Color value) => SaveSet(key, value);
-    public Task Save<T>(string key, System.Drawing.Color? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, System.Drawing.Point value) => SaveSet(key, value);
-    public Task Save<T>(string key, System.Drawing.Point? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, System.Drawing.Size value) => SaveSet(key, value);
-    public Task Save<T>(string key, System.Drawing.Size? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, Guid value) => SaveSet(key, value);
-    public Task Save<T>(string key, Guid? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, TimeSpan value) => SaveSet(key, value);
-    public Task Save<T>(string key, TimeSpan? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, uint value) => SaveSet(key, value);
-    public Task Save<T>(string key, uint? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, ulong value) => SaveSet(key, value);
-    public Task Save<T>(string key, ulong? value) => SaveSet(key, value ?? default);
-    public Task Save<T>(string key, ushort value) => SaveSet(key, value);
-    public Task Save<T>(string key, ushort? value) => SaveSet(key, value ?? default);
-    private Task SaveSet(string key, object? value)
+    public Task Save(string key, bool value) => SaveAndSet(key, value);
+    public Task Save(string key, bool? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, byte value) => SaveAndSet(key, value);
+    public Task Save(string key, byte? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, char value) => SaveAndSet(key, value);
+    public Task Save(string key, char? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, decimal value) => SaveAndSet(key, value);
+    public Task Save(string key, decimal? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, double value) => SaveAndSet(key, value);
+    public Task Save(string key, double? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, float value) => SaveAndSet(key, value);
+    public Task Save(string key, float? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, int value) => SaveAndSet(key, value);
+    public Task Save(string key, int? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, long value) => SaveAndSet(key, value);
+    public Task Save(string key, long? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, sbyte value) => SaveAndSet(key, value);
+    public Task Save(string key, sbyte? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, short value) => SaveAndSet(key, value);
+    public Task Save(string key, short? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, string? value) => SaveAndSet(key, value);
+    public Task Save(string key, System.Collections.Specialized.StringCollection? value) => SaveAndSet(key, value);
+    public Task Save(string key, DateTime value) => SaveAndSet(key, value);
+    public Task Save(string key, DateTime? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, System.Drawing.Color value) => SaveAndSet(key, value);
+    public Task Save(string key, System.Drawing.Color? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, System.Drawing.Point value) => SaveAndSet(key, value);
+    public Task Save(string key, System.Drawing.Point? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, System.Drawing.Size value) => SaveAndSet(key, value);
+    public Task Save(string key, System.Drawing.Size? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, Guid value) => SaveAndSet(key, value);
+    public Task Save(string key, Guid? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, TimeSpan value) => SaveAndSet(key, value);
+    public Task Save(string key, TimeSpan? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, uint value) => SaveAndSet(key, value);
+    public Task Save(string key, uint? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, ulong value) => SaveAndSet(key, value);
+    public Task Save(string key, ulong? value) => SaveAndSet(key, value ?? default);
+    public Task Save(string key, ushort value) => SaveAndSet(key, value);
+    public Task Save(string key, ushort? value) => SaveAndSet(key, value ?? default);
+    private Task SaveAndSet(string key, object? value)
     {
         _settings[key] = value;
 
@@ -60,7 +60,7 @@ public class SettingsService : ISettingsService
 
         return Task.CompletedTask;
     }
-    public Task Save<T>(T? configuration) where T : class
+    public Task BindAndSave<T>(T? configuration) where T : class
     {
         if (configuration is not null)
         {
