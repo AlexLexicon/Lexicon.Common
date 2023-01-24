@@ -17,9 +17,6 @@ public static class ServiceCollectionExtensions
         //add the DataContext
         services.AddTransient<TDataContext>();
 
-        //add the DataContextFactory
-        services.AddTransient<IDataContextFactory, DataContextFactory>();
-
         return new AddDataContextBuilder<TDataContext>(services);
     }
 }
