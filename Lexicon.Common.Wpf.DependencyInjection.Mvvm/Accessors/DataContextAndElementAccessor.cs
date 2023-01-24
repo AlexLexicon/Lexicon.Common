@@ -4,8 +4,12 @@ using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Exceptions;
 using System.Windows;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Accessors;
-//i didnt add an interface to this accessor
-//since its so specific to wpf because of the 'FrameworkElement'
+public interface IDataContextAndElementAccessor<TDataContext> where TDataContext : class
+{
+    public TDataContext DataContext { get; }
+    public FrameworkElement? Element { get; }
+    void AssignDataContext(FrameworkElement frameworkElement);
+}
 public class DataContextAndElementAccessor<TDataContext> where TDataContext : class
 {
     public DataContextAndElementAccessor(TDataContext dataContext)
@@ -14,9 +18,9 @@ public class DataContextAndElementAccessor<TDataContext> where TDataContext : cl
     }
 
     public TDataContext DataContext { get; }
-    public FrameworkElement? Element { get; private set; }
+    public FrameworkElement? Element { get; protected set; }
 
-    public void AssignDataContext(FrameworkElement frameworkElement)
+    public virtual void AssignDataContext(FrameworkElement frameworkElement)
     {
         ArgumentNullException.ThrowIfNull(frameworkElement);
 

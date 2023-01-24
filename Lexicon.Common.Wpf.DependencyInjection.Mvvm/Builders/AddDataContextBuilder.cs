@@ -20,7 +20,7 @@ public class AddDataContextBuilder<TDataContext> where TDataContext : class
         //add a factory to create 'DataContextAndElementAccessor'
         _services.AddTransient(sp =>
         {
-            var dataContextAndElementAccessor = (DataContextAndElementAccessor<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextAndElementAccessor<TDataContext>));
+            var dataContextAndElementAccessor = (IDataContextAndElementAccessor<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextAndElementAccessor<TDataContext>));
 
             var element = sp.GetRequiredService<TElement>();
 

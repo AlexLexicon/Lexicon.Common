@@ -12,7 +12,7 @@ public class DataContextFactory : IDataContextFactory
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
-        var dataContextAndElementAccessor = serviceProvider.GetService<DataContextAndElementAccessor<TDataContext>>();
+        var dataContextAndElementAccessor = serviceProvider.GetService<IDataContextAndElementAccessor<TDataContext>>();
 
         TDataContext dataContext;
         if (dataContextAndElementAccessor is null)
@@ -40,7 +40,7 @@ public class DataContextFactory : IDataContextFactory
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
-        var dataContextAndElementAccessor = serviceProvider.GetService<DataContextAndElementAccessor<TDataContext>>();
+        var dataContextAndElementAccessor = serviceProvider.GetService<IDataContextAndElementAccessor<TDataContext>>();
 
         if (dataContextAndElementAccessor is null)
         {
