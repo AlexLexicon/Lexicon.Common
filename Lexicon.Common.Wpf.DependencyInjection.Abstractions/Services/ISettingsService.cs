@@ -1,5 +1,45 @@
 ﻿namespace Lexicon.Common.Wpf.DependencyInjection.Abstractions.Services;
 public interface ISettingsService
 {
+    Task Save<T>(string key, bool value);
+    Task Save<T>(string key, bool? value);
+    Task Save<T>(string key, byte value);
+    Task Save<T>(string key, byte? value);
+    Task Save<T>(string key, char value);
+    Task Save<T>(string key, char? value);
+    Task Save<T>(string key, decimal value);
+    Task Save<T>(string key, decimal? value);
+    Task Save<T>(string key, double value);
+    Task Save<T>(string key, double? value);
+    Task Save<T>(string key, float value);
+    Task Save<T>(string key, float? value);
+    Task Save<T>(string key, int value);
+    Task Save<T>(string key, int? value);
+    Task Save<T>(string key, long value);
+    Task Save<T>(string key, long? value);
+    Task Save<T>(string key, sbyte value);
+    Task Save<T>(string key, sbyte? value);
+    Task Save<T>(string key, short value);
+    Task Save<T>(string key, short? value);
+    Task Save<T>(string key, string? value);
+    Task Save<T>(string key, System.Collections.Specialized.StringCollection? value);
+    Task Save<T>(string key, DateTime value);
+    Task Save<T>(string key, DateTime? value);
+    Task Save<T>(string key, System.Drawing.Color value);
+    Task Save<T>(string key, System.Drawing.Color? value);
+    Task Save<T>(string key, System.Drawing.Point value);
+    Task Save<T>(string key, System.Drawing.Point? value);
+    Task Save<T>(string key, System.Drawing.Size value);
+    Task Save<T>(string key, System.Drawing.Size? value);
+    Task Save<T>(string key, Guid value);
+    Task Save<T>(string key, Guid? value);
+    Task Save<T>(string key, TimeSpan value);
+    Task Save<T>(string key, TimeSpan? value);
+    Task Save<T>(string key, uint value);
+    Task Save<T>(string key, uint? value);
+    Task Save<T>(string key, ulong value);
+    Task Save<T>(string key, ulong? value);
+    Task Save<T>(string key, ushort value);
+    Task Save<T>(string key, ushort? value);
     Task Save<T>(T configuration) where T : class;
 }
