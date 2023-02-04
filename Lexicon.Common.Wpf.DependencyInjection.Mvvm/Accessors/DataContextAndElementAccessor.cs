@@ -6,19 +6,22 @@ using System.Windows;
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Accessors;
 public interface IDataContextAndElementAccessor<TDataContext> where TDataContext : class
 {
-    public TDataContext? DataContext { get; }
-    public FrameworkElement? Element { get; }
+    FrameworkElement? Element { get; }
+    TDataContext GetDataContext();
     void AssignDataContext(FrameworkElement frameworkElement);
 }
 public class DataContextAndElementAccessor<TDataContext> : IDataContextAndElementAccessor<TDataContext> where TDataContext : class
 {
+    private readonly TDataContext _dataContext;
+
     public DataContextAndElementAccessor(TDataContext dataContext)
     {
-        DataContext = dataContext;
+        _dataContext = dataContext;
     }
 
-    public TDataContext DataContext { get; }
     public FrameworkElement? Element { get; protected set; }
+
+    public virtual TDataContext GetDataContext() => _dataContext;
 
     public virtual void AssignDataContext(FrameworkElement frameworkElement)
     {
@@ -26,10 +29,13 @@ public class DataContextAndElementAccessor<TDataContext> : IDataContextAndElemen
 
         Element = frameworkElement;
 
-        Element.DataContext = DataContext;
+        TDataContext dataContext = GetDataContext();
 
-        if (DataContext is IDataContextClose dcClose)
+        Element.DataContext = dataContext;
+
+        if (dataContext is IDataContextClose dcClose)
         {
+            //todo make the following extenable?
             if (Element is not Window window)
             {
                 throw new ElementCannotCloseException();
@@ -38,7 +44,7 @@ public class DataContextAndElementAccessor<TDataContext> : IDataContextAndElemen
             dcClose.CloseCommand = new RelayCommand(window.Close);
         }
 
-        if (DataContext is IDataContextHide dcHide)
+        if (dataContext is IDataContextHide dcHide)
         {
             if (Element is not Window window)
             {
@@ -48,7 +54,7 @@ public class DataContextAndElementAccessor<TDataContext> : IDataContextAndElemen
             dcHide.HideCommand = new RelayCommand(window.Hide);
         }
 
-        if (DataContext is IDataContextShow dcShow)
+        if (dataContext is IDataContextShow dcShow)
         {
             if (Element is not Window window)
             {
@@ -58,7 +64,7 @@ public class DataContextAndElementAccessor<TDataContext> : IDataContextAndElemen
             dcShow.ShowCommand = new RelayCommand(window.Show);
         }
 
-        if (DataContext is IDataContextShowDialog dcShowDialog)
+        if (dataContext is IDataContextShowDialog dcShowDialog)
         {
             if (Element is not Window window)
             {

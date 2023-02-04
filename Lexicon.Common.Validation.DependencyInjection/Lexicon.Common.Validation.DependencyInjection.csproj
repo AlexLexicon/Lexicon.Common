@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Alex Stroot</Authors>
+		<Description>Provides extension methods for configuring 'Lexicon.Common.Validation' through dependency injection.</Description>
+		<Copyright>2023</Copyright>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Validation.DependencyInjection</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>fluentvalidation, dependencyinjection</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Lexicon.Common.Validation.DependencyInjection.Abstractions\Lexicon.Common.Validation.DependencyInjection.Abstractions.csproj" />
+		<ProjectReference Include="..\Lexicon.Common.Validation\Lexicon.Common.Validation.csproj" />
+	</ItemGroup>
+
+</Project>

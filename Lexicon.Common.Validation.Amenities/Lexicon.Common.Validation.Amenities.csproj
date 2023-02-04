@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Alex Stroot</Authors>
+		<Description>A library of common RuleSets and PropertyValidators for 'Lexicon.Common.Validation'.</Description>
+		<Copyright>2023</Copyright>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Validation.Amenities</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>fluentvalidation</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Lexicon.Common.DependencyInjection\Lexicon.Common.DependencyInjection.csproj" />
+		<ProjectReference Include="..\Lexicon.Common.Validation.Abstractions\Lexicon.Common.Validation.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>

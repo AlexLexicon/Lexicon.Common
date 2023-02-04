@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Alex Stroot</Authors>
+		<Description>Abstractions for 'Lexicon.Common.Validation.DependencyInjection'.</Description>
+		<Copyright>2023</Copyright>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Validation.DependencyInjection.Abstractions</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>fluentvalidation, dependencyinjection</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Lexicon.Common.Validation.Abstractions\Lexicon.Common.Validation.Abstractions.csproj" />
+	</ItemGroup>
+
+</Project>

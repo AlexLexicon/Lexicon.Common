@@ -31,7 +31,7 @@ public static class WpfApplicationExtensions
 
         public Task StartupAsync()
         {
-            DataContextFactory.GetCreateDataContext<TDataContext>(App.Services);
+            DataContextFactory.CreateDataContext<TDataContext>(App.Services);
 
             return Task.CompletedTask;
         }

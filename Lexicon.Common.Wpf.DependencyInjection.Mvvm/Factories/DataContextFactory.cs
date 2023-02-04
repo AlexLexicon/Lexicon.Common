@@ -8,7 +8,7 @@ using System.Windows;
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Factories;
 public class DataContextFactory : IDataContextFactory
 {
-    internal static TDataContext GetCreateDataContext<TDataContext>(IServiceProvider serviceProvider) where TDataContext : class
+    internal static TDataContext CreateDataContext<TDataContext>(IServiceProvider serviceProvider) where TDataContext : class
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
@@ -26,7 +26,7 @@ public class DataContextFactory : IDataContextFactory
         {
             //in this case the Framework element
             //will have also been constructed
-            dataContext = dataContextAndElementAccessor.DataContext;
+            dataContext = dataContextAndElementAccessor.GetDataContext();
         }
 
         if (dataContext is IDataContextCreate dataContextCreate)
@@ -52,12 +52,13 @@ public class DataContextFactory : IDataContextFactory
             throw new DataContextAssociatedElementCannotShowException(typeof(TDataContext));
         }
 
-        if (dataContextAndElementAccessor.DataContext is IDataContextCreate dataContextCreate)
+        TDataContext dataContext = dataContextAndElementAccessor.GetDataContext();
+        if (dataContext is IDataContextCreate dataContextCreate)
         {
             dataContextCreate.Create();
         }
 
-        return (dataContext: dataContextAndElementAccessor.DataContext, window);
+        return (dataContext, window);
     }
 
     private readonly IServiceProvider _serviceProvider;
@@ -69,7 +70,7 @@ public class DataContextFactory : IDataContextFactory
 
     public TDataContext Create<TDataContext>() where TDataContext : class
     {
-        return GetCreateDataContext<TDataContext>(_serviceProvider);
+        return CreateDataContext<TDataContext>(_serviceProvider);
     }
 
     public TDataContext CreateAndShow<TDataContext>() where TDataContext : class

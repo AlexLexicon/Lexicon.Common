@@ -1,24 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0-windows</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
-		<UseWPF>true</UseWPF>
 
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Alex Stroot</Authors>
-		<Description>A library of common controls for Wpf.</Description>
+		<Description>Abstractions for 'Lexicon.Common.Validation'.</Description>
 		<Copyright>2023</Copyright>
-		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Wpf.Controls</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Validation.Abstractions</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
 		<RepositoryType>github</RepositoryType>
-		<PackageTags>wpf, </PackageTags>
+		<PackageTags>fluentvalidation</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Lexicon.Common.Wpf.ValueConverters\Lexicon.Common.Wpf.ValueConverters.csproj" />
+		<PackageReference Include="FluentValidation" Version="11.4.0" />
 	</ItemGroup>
 
 </Project>

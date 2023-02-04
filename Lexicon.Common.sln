@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf", "Lexicon.Common.Wpf\Lexicon.Common.Wpf.csproj", "{54FE3897-4555-44CF-8798-C4EB2369487C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf", "Lexicon.Common.Wpf\Lexicon.Common.Wpf.csproj", "{54FE3897-4555-44CF-8798-C4EB2369487C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.AttachedProperties", "Lexicon.Common.Wpf.AttachedProperties\Lexicon.Common.Wpf.AttachedProperties.csproj", "{3B319717-335F-440A-BD07-8B8D8DC03137}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.AttachedProperties", "Lexicon.Common.Wpf.AttachedProperties\Lexicon.Common.Wpf.AttachedProperties.csproj", "{3B319717-335F-440A-BD07-8B8D8DC03137}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.ValueConverters", "Lexicon.Common.Wpf.ValueConverters\Lexicon.Common.Wpf.ValueConverters.csproj", "{843CD153-DDE3-45BE-8E7A-2535B4790916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.ValueConverters", "Lexicon.Common.Wpf.ValueConverters\Lexicon.Common.Wpf.ValueConverters.csproj", "{843CD153-DDE3-45BE-8E7A-2535B4790916}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.DependencyInjection", "Lexicon.Common.Wpf.DependencyInjection\Lexicon.Common.Wpf.DependencyInjection.csproj", "{FA50840B-C6C5-4B87-A7AF-B1AAB83488FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.DependencyInjection", "Lexicon.Common.Wpf.DependencyInjection\Lexicon.Common.Wpf.DependencyInjection.csproj", "{FA50840B-C6C5-4B87-A7AF-B1AAB83488FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.Controls", "Lexicon.Common.Wpf.Controls\Lexicon.Common.Wpf.Controls.csproj", "{A9929B8C-C8E8-4AB7-9C9C-A4C7FFD23F4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.Controls", "Lexicon.Common.Wpf.Controls\Lexicon.Common.Wpf.Controls.csproj", "{A9929B8C-C8E8-4AB7-9C9C-A4C7FFD23F4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.DependencyInjection", "Lexicon.Common.DependencyInjection\Lexicon.Common.DependencyInjection.csproj", "{856543E0-80BB-49EB-BC1F-91889A1BB8B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.DependencyInjection", "Lexicon.Common.DependencyInjection\Lexicon.Common.DependencyInjection.csproj", "{856543E0-80BB-49EB-BC1F-91889A1BB8B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{875CFC9F-3198-480A-B11B-E641C992F0F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{DE04B82A-E18B-48DC-AF35-5CBEE3978B99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.Dialogs", "Lexicon.Common.Wpf.Dialogs\Lexicon.Common.Wpf.Dialogs.csproj", "{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.Dialogs", "Lexicon.Common.Wpf.Dialogs\Lexicon.Common.Wpf.Dialogs.csproj", "{09A48E24-D6D6-4A77-B9E7-30CA5BCC348B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{04E9882D-DC5B-4BCD-935A-68ACD8253C84}"
 EndProject
@@ -28,11 +28,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\pipelines.yml = .github\workflows\pipelines.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.DependencyInjection.Abstractions", "Lexicon.Common.Wpf.DependencyInjection.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Abstractions.csproj", "{F96E2781-6EE5-4AE5-BEEE-73B36D60614A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.DependencyInjection.Abstractions", "Lexicon.Common.Wpf.DependencyInjection.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Abstractions.csproj", "{F96E2781-6EE5-4AE5-BEEE-73B36D60614A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.DependencyInjection.Mvvm", "Lexicon.Common.Wpf.DependencyInjection.Mvvm\Lexicon.Common.Wpf.DependencyInjection.Mvvm.csproj", "{49701B72-FECA-4D78-987C-E040CA8D8D99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.DependencyInjection.Mvvm", "Lexicon.Common.Wpf.DependencyInjection.Mvvm\Lexicon.Common.Wpf.DependencyInjection.Mvvm.csproj", "{49701B72-FECA-4D78-987C-E040CA8D8D99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions", "Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.csproj", "{35CBB30C-12C2-4B74-9E88-E1D171CF318F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions", "Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.csproj", "{35CBB30C-12C2-4B74-9E88-E1D171CF318F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation", "Validation", "{B9ED184B-5398-4EB9-A77F-018BE3DC6157}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation", "Lexicon.Common.Validation\Lexicon.Common.Validation.csproj", "{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.Abstractions", "Lexicon.Common.Validation.Abstractions\Lexicon.Common.Validation.Abstractions.csproj", "{40BE41D8-8BFD-4125-AE46-160850378B69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.Amenities", "Lexicon.Common.Validation.Amenities\Lexicon.Common.Validation.Amenities.csproj", "{E0F25471-5697-4E93-BF2F-818296FDB36C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.DependencyInjection", "Lexicon.Common.Validation.DependencyInjection\Lexicon.Common.Validation.DependencyInjection.csproj", "{B6EABFDD-FF45-4053-8138-57A8E816DA0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.DependencyInjection.Abstractions", "Lexicon.Common.Validation.DependencyInjection.Abstractions\Lexicon.Common.Validation.DependencyInjection.Abstractions.csproj", "{376BD33A-D3CC-4A9D-9600-E622E0710704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.DependencyInjection.Amenities", "Lexicon.Common.Validation.DependencyInjection.Amenities\Lexicon.Common.Validation.DependencyInjection.Amenities.csproj", "{799ED5F0-F906-44BF-BA9C-5DE67409C219}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +94,30 @@ Global
 		{35CBB30C-12C2-4B74-9E88-E1D171CF318F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35CBB30C-12C2-4B74-9E88-E1D171CF318F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35CBB30C-12C2-4B74-9E88-E1D171CF318F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40BE41D8-8BFD-4125-AE46-160850378B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40BE41D8-8BFD-4125-AE46-160850378B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40BE41D8-8BFD-4125-AE46-160850378B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40BE41D8-8BFD-4125-AE46-160850378B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F25471-5697-4E93-BF2F-818296FDB36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F25471-5697-4E93-BF2F-818296FDB36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F25471-5697-4E93-BF2F-818296FDB36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F25471-5697-4E93-BF2F-818296FDB36C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6EABFDD-FF45-4053-8138-57A8E816DA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6EABFDD-FF45-4053-8138-57A8E816DA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6EABFDD-FF45-4053-8138-57A8E816DA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6EABFDD-FF45-4053-8138-57A8E816DA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{376BD33A-D3CC-4A9D-9600-E622E0710704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376BD33A-D3CC-4A9D-9600-E622E0710704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376BD33A-D3CC-4A9D-9600-E622E0710704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{376BD33A-D3CC-4A9D-9600-E622E0710704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799ED5F0-F906-44BF-BA9C-5DE67409C219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799ED5F0-F906-44BF-BA9C-5DE67409C219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799ED5F0-F906-44BF-BA9C-5DE67409C219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799ED5F0-F906-44BF-BA9C-5DE67409C219}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +134,12 @@ Global
 		{F96E2781-6EE5-4AE5-BEEE-73B36D60614A} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 		{49701B72-FECA-4D78-987C-E040CA8D8D99} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 		{35CBB30C-12C2-4B74-9E88-E1D171CF318F} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
+		{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6} = {B9ED184B-5398-4EB9-A77F-018BE3DC6157}
+		{40BE41D8-8BFD-4125-AE46-160850378B69} = {B9ED184B-5398-4EB9-A77F-018BE3DC6157}
+		{E0F25471-5697-4E93-BF2F-818296FDB36C} = {B9ED184B-5398-4EB9-A77F-018BE3DC6157}
+		{B6EABFDD-FF45-4053-8138-57A8E816DA0C} = {B9ED184B-5398-4EB9-A77F-018BE3DC6157}
+		{376BD33A-D3CC-4A9D-9600-E622E0710704} = {B9ED184B-5398-4EB9-A77F-018BE3DC6157}
+		{799ED5F0-F906-44BF-BA9C-5DE67409C219} = {B9ED184B-5398-4EB9-A77F-018BE3DC6157}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A452E06-DB9F-4BBD-A692-4D36869CEB9B}

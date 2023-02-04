@@ -18,8 +18,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.csproj" />
-	  <ProjectReference Include="..\Lexicon.Common.Wpf.DependencyInjection\Lexicon.Common.Wpf.DependencyInjection.csproj" />
+		<ProjectReference Include="..\Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.csproj" />
+		<ProjectReference Include="..\Lexicon.Common.Wpf.DependencyInjection\Lexicon.Common.Wpf.DependencyInjection.csproj" />
 	</ItemGroup>
 
 </Project>

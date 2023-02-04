@@ -17,11 +17,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Lexicon.Common.Wpf.DependencyInjection.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Abstractions.csproj" />
+		<ProjectReference Include="..\Lexicon.Common.Wpf.DependencyInjection.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>
