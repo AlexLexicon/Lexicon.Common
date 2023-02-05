@@ -8,7 +8,7 @@ using System.Windows;
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Factories;
 public class DataContextFactory : IDataContextFactory
 {
-    internal static TDataContext CreateDataContext<TDataContext>(IServiceProvider serviceProvider) where TDataContext : class
+    internal static TDataContext CreateDataContext<TDataContext>(IServiceProvider serviceProvider, Action<TDataContext>? configure) where TDataContext : class
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
@@ -29,6 +29,8 @@ public class DataContextFactory : IDataContextFactory
             dataContext = dataContextAndElementAccessor.GetDataContext();
         }
 
+        configure?.Invoke(dataContext);
+
         if (dataContext is IDataContextCreate dataContextCreate)
         {
             dataContextCreate.Create();
@@ -36,7 +38,7 @@ public class DataContextFactory : IDataContextFactory
 
         return dataContext;
     }
-    internal static (TDataContext dataContext, Window window) GetCreateAndShowDataContextAndElementAccessor<TDataContext>(IServiceProvider serviceProvider) where TDataContext : class
+    internal static (TDataContext dataContext, Window window) GetCreateAndShowDataContextAndElementAccessor<TDataContext>(IServiceProvider serviceProvider, Action<TDataContext>? configure) where TDataContext : class
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
@@ -53,6 +55,9 @@ public class DataContextFactory : IDataContextFactory
         }
 
         TDataContext dataContext = dataContextAndElementAccessor.GetDataContext();
+
+        configure?.Invoke(dataContext);
+        
         if (dataContext is IDataContextCreate dataContextCreate)
         {
             dataContextCreate.Create();
@@ -70,12 +75,28 @@ public class DataContextFactory : IDataContextFactory
 
     public TDataContext Create<TDataContext>() where TDataContext : class
     {
-        return CreateDataContext<TDataContext>(_serviceProvider);
+        return CreateDataContext<TDataContext>(_serviceProvider, null);
+    }
+    public TDataContext Create<TDataContext>(Action<TDataContext> configure) where TDataContext : class
+    {
+        ArgumentNullException.ThrowIfNull(configure);
+
+        return CreateDataContext(_serviceProvider, configure);
     }
 
     public TDataContext CreateAndShow<TDataContext>() where TDataContext : class
     {
-        var (dataContext, window) = GetCreateAndShowDataContextAndElementAccessor<TDataContext>(_serviceProvider);
+        return CreateConfigureAndShow<TDataContext>(null);
+    }
+    public TDataContext CreateAndShow<TDataContext>(Action<TDataContext> configure) where TDataContext : class
+    {
+        ArgumentNullException.ThrowIfNull(configure);
+
+        return CreateConfigureAndShow(configure);
+    }
+    private TDataContext CreateConfigureAndShow<TDataContext>(Action<TDataContext>? configure) where TDataContext : class
+    {
+        var (dataContext, window) = GetCreateAndShowDataContextAndElementAccessor(_serviceProvider, configure);
 
         window.Show();
 
