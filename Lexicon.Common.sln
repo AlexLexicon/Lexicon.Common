@@ -36,21 +36,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.Dependen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation", "Validation", "{B9ED184B-5398-4EB9-A77F-018BE3DC6157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation", "Lexicon.Common.Validation\Lexicon.Common.Validation.csproj", "{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Validation", "Lexicon.Common.Validation\Lexicon.Common.Validation.csproj", "{5169D0DD-2AEE-4E2E-AED7-36D90D2293A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.Abstractions", "Lexicon.Common.Validation.Abstractions\Lexicon.Common.Validation.Abstractions.csproj", "{40BE41D8-8BFD-4125-AE46-160850378B69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Validation.Abstractions", "Lexicon.Common.Validation.Abstractions\Lexicon.Common.Validation.Abstractions.csproj", "{40BE41D8-8BFD-4125-AE46-160850378B69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.Amenities", "Lexicon.Common.Validation.Amenities\Lexicon.Common.Validation.Amenities.csproj", "{E0F25471-5697-4E93-BF2F-818296FDB36C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Validation.Amenities", "Lexicon.Common.Validation.Amenities\Lexicon.Common.Validation.Amenities.csproj", "{E0F25471-5697-4E93-BF2F-818296FDB36C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.DependencyInjection", "Lexicon.Common.Validation.DependencyInjection\Lexicon.Common.Validation.DependencyInjection.csproj", "{B6EABFDD-FF45-4053-8138-57A8E816DA0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Validation.DependencyInjection", "Lexicon.Common.Validation.DependencyInjection\Lexicon.Common.Validation.DependencyInjection.csproj", "{B6EABFDD-FF45-4053-8138-57A8E816DA0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.DependencyInjection.Abstractions", "Lexicon.Common.Validation.DependencyInjection.Abstractions\Lexicon.Common.Validation.DependencyInjection.Abstractions.csproj", "{376BD33A-D3CC-4A9D-9600-E622E0710704}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Validation.DependencyInjection.Abstractions", "Lexicon.Common.Validation.DependencyInjection.Abstractions\Lexicon.Common.Validation.DependencyInjection.Abstractions.csproj", "{376BD33A-D3CC-4A9D-9600-E622E0710704}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Validation.DependencyInjection.Amenities", "Lexicon.Common.Validation.DependencyInjection.Amenities\Lexicon.Common.Validation.DependencyInjection.Amenities.csproj", "{799ED5F0-F906-44BF-BA9C-5DE67409C219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Validation.DependencyInjection.Amenities", "Lexicon.Common.Validation.DependencyInjection.Amenities\Lexicon.Common.Validation.DependencyInjection.Amenities.csproj", "{799ED5F0-F906-44BF-BA9C-5DE67409C219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.DependencyInjection.Amenities", "Lexicon.Common.Wpf.DependencyInjection.Amenities\Lexicon.Common.Wpf.DependencyInjection.Amenities.csproj", "{B7CDFBFC-CDAA-497E-A393-506CCB7CF3C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.DependencyInjection.Amenities", "Lexicon.Common.Wpf.DependencyInjection.Amenities\Lexicon.Common.Wpf.DependencyInjection.Amenities.csproj", "{B7CDFBFC-CDAA-497E-A393-506CCB7CF3C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions", "Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.csproj", "{54D42B48-2BAC-429F-8474-4A4530C00E06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions", "Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.csproj", "{54D42B48-2BAC-429F-8474-4A4530C00E06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Enums", "Enums", "{6FAB7E47-6EF1-419E-97C5-BE8172720E6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.Common.Enums", "Lexicon.Common.Enums\Lexicon.Common.Enums.csproj", "{328E8198-DD8D-45AE-A3E5-498C32854FFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +134,10 @@ Global
 		{54D42B48-2BAC-429F-8474-4A4530C00E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54D42B48-2BAC-429F-8474-4A4530C00E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54D42B48-2BAC-429F-8474-4A4530C00E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{328E8198-DD8D-45AE-A3E5-498C32854FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{328E8198-DD8D-45AE-A3E5-498C32854FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{328E8198-DD8D-45AE-A3E5-498C32854FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{328E8198-DD8D-45AE-A3E5-498C32854FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,6 +162,7 @@ Global
 		{799ED5F0-F906-44BF-BA9C-5DE67409C219} = {B9ED184B-5398-4EB9-A77F-018BE3DC6157}
 		{B7CDFBFC-CDAA-497E-A393-506CCB7CF3C1} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
 		{54D42B48-2BAC-429F-8474-4A4530C00E06} = {875CFC9F-3198-480A-B11B-E641C992F0F8}
+		{328E8198-DD8D-45AE-A3E5-498C32854FFC} = {6FAB7E47-6EF1-419E-97C5-BE8172720E6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A452E06-DB9F-4BBD-A692-4D36869CEB9B}
