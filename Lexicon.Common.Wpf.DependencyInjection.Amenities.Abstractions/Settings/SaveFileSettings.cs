@@ -1,5 +1,5 @@
-﻿namespace Lexicon.Common.Wpf.Dialogs.Options;
-public class SaveFileOptions
+﻿namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Settings;
+public class SaveFileSettings
 {
     public string? Title { get; set; } = "Save File";
     public string? FileName { get; set; }

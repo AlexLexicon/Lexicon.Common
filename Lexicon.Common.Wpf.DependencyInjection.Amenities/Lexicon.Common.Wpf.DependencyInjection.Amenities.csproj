@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Alex Stroot</Authors>
+		<Description>A library that adds commonly used Wpf funtionality as services and configurations for dependency injection.</Description>
+		<Copyright>2023</Copyright>
+		<PackageProjectUrl>https://github.com/AlexLexicon/Lexicon.Common/tree/master/Lexicon.Common.Wpf.DependencyInjection.Amenities</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AlexLexicon/Lexicon.Common</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<PackageTags>wpf, dependencyinjection</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions\Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.csproj" />
+		<ProjectReference Include="..\Lexicon.Common.Wpf.Dialogs\Lexicon.Common.Wpf.Dialogs.csproj" />
+	</ItemGroup>
+
+</Project>

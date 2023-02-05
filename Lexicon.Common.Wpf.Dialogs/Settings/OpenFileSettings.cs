@@ -1,5 +1,5 @@
-﻿namespace Lexicon.Common.Wpf.Dialogs.Options;
-public class OpenFileOptions
+﻿namespace Lexicon.Common.Wpf.Dialogs.Settings;
+public class OpenFileSettings
 {
     public string? Title { get; set; } = "Open File";
     public string? FileName { get; set; }
