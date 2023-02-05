@@ -1,4 +1,5 @@
 ﻿using Lexicon.Common.Wpf.ValueConverters.Usage;
+using System.Collections;
 using System.Windows;
 
 namespace Lexicon.Common.Wpf.ValueConverters;
@@ -174,6 +175,16 @@ public sealed class ToVisibilityConverter : ValueConverterBase<Visibility>
         if (value is bool boolValue)
         {
             return boolValue ? showResult : hideResult;
+        }
+
+        if (value is ICollection collection)
+        {
+            return collection.Count > 0 ? showResult : hideResult;
+        }
+        
+        if (value is IEnumerable enumerable)
+        {
+            return enumerable.GetEnumerator().MoveNext() ? showResult : hideResult;
         }
 
         if (value is IComparable comparableValue)
