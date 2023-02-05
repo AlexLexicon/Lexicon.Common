@@ -31,7 +31,7 @@ public static class WpfApplicationExtensions
 
         public Task StartupAsync()
         {
-            DataContextFactory.CreateDataContext<TDataContext>(App.Services, null);
+            DataContextFactory.CreateDataContext<TDataContext, object>(App.Services, null);
 
             return Task.CompletedTask;
         }
@@ -43,7 +43,7 @@ public static class WpfApplicationExtensions
         public async Task StartupAsync()
         {
             var dispatcher = App.Services.GetRequiredService<Dispatcher>();
-            var (dataContext, window) = DataContextFactory.GetCreateAndShowDataContextAndElementAccessor<TDataContext>(App.Services, null);
+            var (dataContext, window) = DataContextFactory.GetCreateAndShowDataContextAndElementAccessor<TDataContext, object>(App.Services, null);
 
             await dispatcher.BeginInvoke(window.Show, DispatcherPriority.ApplicationIdle);
         }

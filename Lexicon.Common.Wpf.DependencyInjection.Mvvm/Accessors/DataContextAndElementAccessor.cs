@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions;
 using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Exceptions;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Accessors;
@@ -8,20 +9,27 @@ public interface IDataContextAndElementAccessor<TDataContext> where TDataContext
 {
     FrameworkElement? Element { get; }
     TDataContext GetDataContext();
+    TDataContext GetDataContext<TModel>(TModel model);
     void AssignDataContext(FrameworkElement frameworkElement);
 }
 public class DataContextAndElementAccessor<TDataContext> : IDataContextAndElementAccessor<TDataContext> where TDataContext : class
 {
-    private readonly TDataContext _dataContext;
+    private readonly IServiceProvider _serviceProvider;
 
-    public DataContextAndElementAccessor(TDataContext dataContext)
+    public DataContextAndElementAccessor(IServiceProvider serviceProvider)
     {
-        _dataContext = dataContext;
+        _serviceProvider = serviceProvider;
     }
 
     public FrameworkElement? Element { get; protected set; }
 
-    public virtual TDataContext GetDataContext() => _dataContext;
+    public virtual TDataContext GetDataContext() => _serviceProvider.GetRequiredService<TDataContext>();
+    public virtual TDataContext GetDataContext<TModel>(TModel model)
+    {
+        ArgumentNullException.ThrowIfNull(model);
+
+        return (TDataContext)ActivatorUtilities.CreateInstance(_serviceProvider, typeof(TDataContext), model);
+    }
 
     public virtual void AssignDataContext(FrameworkElement frameworkElement)
     {
