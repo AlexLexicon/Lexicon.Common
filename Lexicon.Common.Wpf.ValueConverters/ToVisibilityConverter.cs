@@ -26,6 +26,10 @@ public sealed class ToVisibilityConverter : ValueConverterBase<Visibility>
         new ResultForPatternMatch<IsStrings>(IsStrings.NullOrEmpty, new [] { "isnullorempty", "nullorempty", "noe", "0" }),
         new ResultForPatternMatch<IsStrings>(IsStrings.NullOrWhiteSpace, new [] { "isnullorwhitespace", "nullorwhitespace", "now", "1" })
     });
+    private static readonly ValueConverterParameterDefinition<IsEnumerable> HIDE_WHEN_ENUMERABLE_PARAMETER = new ValueConverterParameterDefinition<IsEnumerable>("hidewhenenumerable", new ResultForPatternMatchCollection<IsEnumerable>
+    {
+        new ResultForPatternMatch<IsEnumerable>(IsEnumerable.NullOrEmpty, new [] { "isnullorempty", "nullorempty", "noe", "0" }),
+    });
 
     private static string GetVisibilityString(Visibility value) => value.ToString().ToLowerInvariant();
     private static T GetVisibilityDichotomy<T>(Visibility visibility, T visible, T hiddenOrCollapsed) => GetVisibilityTrichotomy(visibility, visible, hiddenOrCollapsed, hiddenOrCollapsed);
@@ -56,6 +60,7 @@ public sealed class ToVisibilityConverter : ValueConverterBase<Visibility>
     public Visibility? DefaultShow { get; set; }
     public Visibility? DefaultHide { get; set; }
     public IsStrings? DefaultHideWhenString { get; set; }
+    public IsEnumerable? DefaultHideWhenEnumerable { get; set; }
 
     protected override Visibility TConvert(object? value, ValueConverterArgs args)
     {
@@ -177,15 +182,27 @@ public sealed class ToVisibilityConverter : ValueConverterBase<Visibility>
             return boolValue ? showResult : hideResult;
         }
 
-        if (value is ICollection collection)
+        IsEnumerable isEnumerable = IsEnumerable.None;
+        if (HasParameter(HIDE_WHEN_ENUMERABLE_PARAMETER, out IsEnumerable isEnumerableParameter))
         {
-            return collection.Count > 0 ? showResult : hideResult;
+            isEnumerable = isEnumerableParameter;
         }
-        
-        if (value is IEnumerable enumerable)
+        else if (DefaultHideWhenEnumerable is not null)
         {
-            return enumerable.GetEnumerator().MoveNext() ? showResult : hideResult;
+            isEnumerable = DefaultHideWhenEnumerable.Value;
         }
+
+        if (isEnumerable == IsEnumerable.NullOrEmpty)
+        {
+            if (value is ICollection collection)
+            {
+                return collection.Count > 0 ? showResult : hideResult;
+            }
+            else if (value is IEnumerable enumerable)
+            {
+                return enumerable.GetEnumerator().MoveNext() ? showResult : hideResult;
+            }
+        } 
 
         if (value is IComparable comparableValue)
         {
