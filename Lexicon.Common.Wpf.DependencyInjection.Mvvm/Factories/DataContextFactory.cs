@@ -8,7 +8,7 @@ using System.Windows;
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Factories;
 public class DataContextFactory : IDataContextFactory
 {
-    internal static TDataContext CreateAndHandleDataContext<TDataContext, TModel1, TModel2, TModel3>(IServiceProvider serviceProvider, TModel1? model1 = null, TModel2? model2 = null, TModel3? model3 = null, IDataContextForElementHandler<TDataContext>? dataContextForElementHandler = null) where TDataContext : class where TModel1 : class where TModel2 : class where TModel3 : class
+    internal static TDataContext CreateAndHandleDataContext<TDataContext, TModel1, TModel2, TModel3>(IServiceProvider serviceProvider, TModel1? model1 = null, TModel2? model2 = null, TModel3? model3 = null, IDataContextHostElementHandler<TDataContext>? dataContextForElementHandler = null) where TDataContext : class where TModel1 : class where TModel2 : class where TModel3 : class
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
@@ -30,7 +30,7 @@ public class DataContextFactory : IDataContextFactory
             dataContext = serviceProvider.GetRequiredService<TDataContext>();
         }
 
-        dataContextForElementHandler ??= serviceProvider.GetService<IDataContextForElementHandler<TDataContext>>();
+        dataContextForElementHandler ??= serviceProvider.GetService<IDataContextHostElementHandler<TDataContext>>();
 
         if (dataContextForElementHandler is not null)
         {
@@ -48,7 +48,7 @@ public class DataContextFactory : IDataContextFactory
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
-        var dataContextForElementHandler = serviceProvider.GetService<IDataContextForElementHandler<TDataContext>>();
+        var dataContextForElementHandler = serviceProvider.GetService<IDataContextHostElementHandler<TDataContext>>();
 
         if (dataContextForElementHandler is null)
         {

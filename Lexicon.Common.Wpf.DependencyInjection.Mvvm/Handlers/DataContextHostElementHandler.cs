@@ -4,12 +4,12 @@ using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Exceptions;
 using System.Windows;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Handlers;
-public interface IDataContextForElementHandler<TDataContext> where TDataContext : class
+public interface IDataContextHostElementHandler<TDataContext> where TDataContext : class
 {
     FrameworkElement? FrameworkElement { get; set; }
     void Handle(TDataContext dataContext);
 }
-public class DataContextForElementHandler<TDataContext> : IDataContextForElementHandler<TDataContext> where TDataContext : class
+public class DataContextHostElementHandler<TDataContext> : IDataContextHostElementHandler<TDataContext> where TDataContext : class
 {
     public FrameworkElement? FrameworkElement { get; set; }
 

@@ -12,7 +12,7 @@ public class AddDataContextBuilder<TDataContext> where TDataContext : class
         _services = services;
     }
 
-    public void ForElement<TElement>() where TElement : FrameworkElement
+    public void WithHostElement<TElement>() where TElement : FrameworkElement
     {
         //add the FrameworkElement
         _services.AddTransient<TElement>();
@@ -20,7 +20,7 @@ public class AddDataContextBuilder<TDataContext> where TDataContext : class
         //add a factory to create 'DataContextForElementHandler'
         _services.AddTransient(sp =>
         {
-            var dataContextForElementHandler = (DataContextForElementHandler<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextForElementHandler<TDataContext>));
+            var dataContextForElementHandler = (IDataContextHostElementHandler<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextHostElementHandler<TDataContext>));
 
             var frameworkElement = sp.GetRequiredService<TElement>();
 
@@ -28,6 +28,5 @@ public class AddDataContextBuilder<TDataContext> where TDataContext : class
 
             return dataContextForElementHandler;
         });
-        _services.AddTransient(typeof(IDataContextForElementHandler<>), typeof(DataContextForElementHandler<>));
     }
 }
