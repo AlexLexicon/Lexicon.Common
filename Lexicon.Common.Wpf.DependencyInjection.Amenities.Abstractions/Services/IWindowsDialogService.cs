@@ -1,6 +1,4 @@
-﻿using Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Settings;
-
-namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Services;
+﻿namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Services;
 public interface IWindowsDialogService
 {
     string? SaveFile();

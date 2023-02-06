@@ -1,5 +1,4 @@
 using Lexicon.Common.Wpf.Dialogs.Extensions;
-using Lexicon.Common.Wpf.Dialogs.Settings;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Lexicon.Common.Wpf.Dialogs;

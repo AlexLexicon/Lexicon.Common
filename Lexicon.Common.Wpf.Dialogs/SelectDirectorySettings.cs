@@ -1,4 +1,4 @@
-﻿namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Settings;
+﻿namespace Lexicon.Common.Wpf.Dialogs;
 public class SelectDirectorySettings
 {
     public string? Title { get; set; } = "Select Folder";

@@ -1,4 +1,4 @@
-﻿namespace Lexicon.Common.Wpf.Dialogs.Settings;
+﻿namespace Lexicon.Common.Wpf.Dialogs;
 public class SaveFileSettings
 {
     public string? Title { get; set; } = "Save File";

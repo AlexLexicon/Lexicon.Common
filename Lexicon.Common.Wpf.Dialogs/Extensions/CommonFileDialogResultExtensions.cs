@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
+﻿using Lexicon.Common.Wpf.Dialogs.Exceptions;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Lexicon.Common.Wpf.Dialogs.Extensions;
 public static class CommonFileDialogResultExtensions
@@ -16,7 +17,14 @@ public static class CommonFileDialogResultExtensions
 
         if (result is not null && result.Value)
         {
-            return commonFileDialog.FileName;
+            try
+            {
+                return commonFileDialog.FileName;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                throw new CommonFileDialogMissingFilterException(e);
+            }
         }
 
         return null;

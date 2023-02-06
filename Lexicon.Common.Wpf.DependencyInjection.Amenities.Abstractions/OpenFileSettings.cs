@@ -1,4 +1,4 @@
-﻿namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Settings;
+﻿namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions;
 public class OpenFileSettings
 {
     public string? Title { get; set; } = "Open File";

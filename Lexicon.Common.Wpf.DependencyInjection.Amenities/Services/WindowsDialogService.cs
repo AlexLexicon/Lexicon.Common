@@ -1,5 +1,5 @@
-﻿using Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Services;
-using Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Settings;
+﻿using Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions;
+using Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Services;
 using Lexicon.Common.Wpf.Dialogs;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Services;

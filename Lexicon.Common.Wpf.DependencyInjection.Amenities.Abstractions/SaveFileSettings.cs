@@ -1,4 +1,4 @@
-﻿namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Settings;
+﻿namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions;
 public class SaveFileSettings
 {
     public string? Title { get; set; } = "Save File";
