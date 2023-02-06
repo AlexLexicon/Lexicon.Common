@@ -21,7 +21,7 @@ public partial class Spinner : UserControl
         set => SetValue(RingForegroundProperty, value);
     }
 
-    public static readonly DependencyProperty RingStrokeThicknessProperty = DependencyProperty.Register(nameof(RingStrokeThickness), typeof(double), typeof(Spinner), new PropertyMetadata(4));
+    public static readonly DependencyProperty RingStrokeThicknessProperty = DependencyProperty.Register(nameof(RingStrokeThickness), typeof(double), typeof(Spinner), new PropertyMetadata(4.0));
     public double RingStrokeThickness
     {
         get => (double)GetValue(RingStrokeThicknessProperty);
