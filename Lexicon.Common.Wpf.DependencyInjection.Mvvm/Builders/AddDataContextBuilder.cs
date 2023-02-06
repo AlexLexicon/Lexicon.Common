@@ -17,10 +17,10 @@ public class AddDataContextBuilder<TDataContext> where TDataContext : class
         //add the FrameworkElement
         _services.AddTransient<TElement>();
 
-        //add a factory to create 'DataContextAndElementAccessor'
+        //add a factory to create 'DataContextForElementHandler'
         _services.AddTransient(sp =>
         {
-            var dataContextForElementHandler = (IDataContextForElementHandler<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextForElementHandler<TDataContext>));
+            var dataContextForElementHandler = (DataContextForElementHandler<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextForElementHandler<TDataContext>));
 
             var frameworkElement = sp.GetRequiredService<TElement>();
 
@@ -28,5 +28,6 @@ public class AddDataContextBuilder<TDataContext> where TDataContext : class
 
             return dataContextForElementHandler;
         });
+        _services.AddTransient(typeof(IDataContextForElementHandler<>), typeof(DataContextForElementHandler<>));
     }
 }
