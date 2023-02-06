@@ -1,4 +1,4 @@
-﻿using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Accessors;
+﻿using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
@@ -20,13 +20,13 @@ public class AddDataContextBuilder<TDataContext> where TDataContext : class
         //add a factory to create 'DataContextAndElementAccessor'
         _services.AddTransient(sp =>
         {
-            var dataContextAndElementAccessor = (IDataContextAndElementAccessor<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextAndElementAccessor<TDataContext>));
+            var dataContextForElementHandler = (IDataContextForElementHandler<TDataContext>)ActivatorUtilities.CreateInstance(sp, typeof(DataContextForElementHandler<TDataContext>));
 
-            var element = sp.GetRequiredService<TElement>();
+            var frameworkElement = sp.GetRequiredService<TElement>();
 
-            dataContextAndElementAccessor.AssignDataContext(element);
+            dataContextForElementHandler.FrameworkElement = frameworkElement;
 
-            return dataContextAndElementAccessor;
+            return dataContextForElementHandler;
         });
     }
 }

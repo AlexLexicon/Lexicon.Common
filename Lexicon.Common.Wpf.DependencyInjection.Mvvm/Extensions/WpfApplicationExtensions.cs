@@ -1,6 +1,8 @@
 ﻿using Lexicon.Common.Wpf.DependencyInjection.Abstractions.Services;
+using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Exceptions;
 using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Factories;
 using Microsoft.Extensions.DependencyInjection;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Extensions;
@@ -31,7 +33,7 @@ public static class WpfApplicationExtensions
 
         public Task StartupAsync()
         {
-            DataContextFactory.CreateDataContext<TDataContext, object>(App.Services, null);
+            DataContextFactory.CreateAndHandleDataContext<TDataContext, object>(App.Services, null);
 
             return Task.CompletedTask;
         }
@@ -43,7 +45,12 @@ public static class WpfApplicationExtensions
         public async Task StartupAsync()
         {
             var dispatcher = App.Services.GetRequiredService<Dispatcher>();
-            var (dataContext, window) = DataContextFactory.GetCreateAndShowDataContextAndElementAccessor<TDataContext, object>(App.Services, null);
+            (_, FrameworkElement frameworkElement) = DataContextFactory.ShowAndHandleDataContext<TDataContext, object>(App.Services, null);
+
+            if (frameworkElement is not Window window)
+            {
+                throw new DataContextAssociatedElementCannotShowException(typeof(TDataContext));
+            }
 
             await dispatcher.BeginInvoke(window.Show, DispatcherPriority.ApplicationIdle);
         }

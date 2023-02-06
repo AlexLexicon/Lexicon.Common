@@ -1,46 +1,32 @@
 ﻿using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions;
 using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Exceptions;
 using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Abstractions.Factories;
-using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Accessors;
+using Lexicon.Common.Wpf.DependencyInjection.Mvvm.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Mvvm.Factories;
 public class DataContextFactory : IDataContextFactory
 {
-    internal static TDataContext CreateDataContext<TDataContext, TModel>(IServiceProvider serviceProvider, TModel? model) where TDataContext : class
+    internal static TDataContext CreateAndHandleDataContext<TDataContext, TModel>(IServiceProvider serviceProvider, TModel? model) where TDataContext : class
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
-        var dataContextAndElementAccessor = serviceProvider.GetService<IDataContextAndElementAccessor<TDataContext>>();
+        var dataContextForElementHandler = serviceProvider.GetService<IDataContextForElementHandler<TDataContext>>();
 
         TDataContext dataContext;
-        if (dataContextAndElementAccessor is null)
+        if (model is null)
         {
-            //there will only be a DataContextAndElementAccessor
-            //if the 'ForElement' method was called when 
-            //adding the DataContext to the services
-            if (model is null)
-            {
-                dataContext = serviceProvider.GetRequiredService<TDataContext>();
-            }
-            else
-            {
-                dataContext = (TDataContext)ActivatorUtilities.CreateInstance(serviceProvider, typeof(TDataContext), model);
-            }
+            dataContext = serviceProvider.GetRequiredService<TDataContext>();
         }
         else
         {
-            //in this case the Framework element
-            //will have also been constructed
-            if (model is null)
-            {
-                dataContext = dataContextAndElementAccessor.GetDataContext(model);
-            }
-            else
-            {
-                dataContext = dataContextAndElementAccessor.GetDataContext();
-            }
+            dataContext = (TDataContext)ActivatorUtilities.CreateInstance(serviceProvider, typeof(TDataContext), model);
+        }
+
+        if (dataContextForElementHandler is not null)
+        {
+            dataContextForElementHandler.Handle(dataContext);
         }
 
         if (dataContext is IDataContextCreate dataContextCreate)
@@ -50,38 +36,40 @@ public class DataContextFactory : IDataContextFactory
 
         return dataContext;
     }
-    internal static (TDataContext dataContext, Window window) GetCreateAndShowDataContextAndElementAccessor<TDataContext, TModel>(IServiceProvider serviceProvider, TModel? model) where TDataContext : class
+    internal static (TDataContext dataContext, FrameworkElement frameworkElement) ShowAndHandleDataContext<TDataContext, TModel>(IServiceProvider serviceProvider, TModel? model) where TDataContext : class
     {
         ArgumentNullException.ThrowIfNull(serviceProvider);
 
-        var dataContextAndElementAccessor = serviceProvider.GetService<IDataContextAndElementAccessor<TDataContext>>();
+        var dataContextForElementHandler = serviceProvider.GetService<IDataContextForElementHandler<TDataContext>>();
 
-        if (dataContextAndElementAccessor is null)
+        if (dataContextForElementHandler is null)
         {
             throw new DataContextDoesNotHaveAssociatedElementException(typeof(TDataContext));
         }
 
-        if (dataContextAndElementAccessor.Element is not Window window)
+        if (dataContextForElementHandler.FrameworkElement is null)
         {
-            throw new DataContextAssociatedElementCannotShowException(typeof(TDataContext));
+            throw new DataContextAssociatedElementNullException(typeof(TDataContext));
         }
 
         TDataContext dataContext;
         if (model is null)
         {
-            dataContext = dataContextAndElementAccessor.GetDataContext();
+            dataContext = serviceProvider.GetRequiredService<TDataContext>();
         }
         else
         {
-            dataContext = dataContextAndElementAccessor.GetDataContext(model);
+            dataContext = (TDataContext)ActivatorUtilities.CreateInstance(serviceProvider, typeof(TDataContext), model);
         }
+
+        dataContextForElementHandler.Handle(dataContext);
 
         if (dataContext is IDataContextCreate dataContextCreate)
         {
             dataContextCreate.Create();
         }
 
-        return (dataContext, window);
+        return (dataContext, dataContextForElementHandler.FrameworkElement);
     }
 
     private readonly IServiceProvider _serviceProvider;
@@ -93,13 +81,13 @@ public class DataContextFactory : IDataContextFactory
 
     public TDataContext Create<TDataContext>() where TDataContext : class
     {
-        return CreateDataContext<TDataContext, object>(_serviceProvider, null);
+        return CreateAndHandleDataContext<TDataContext, object>(_serviceProvider, null);
     }
     public TDataContext Create<TDataContext, TModel>(TModel model) where TDataContext : class
     {
         ArgumentNullException.ThrowIfNull(model);
 
-        return CreateDataContext<TDataContext, TModel>(_serviceProvider, model);
+        return CreateAndHandleDataContext<TDataContext, TModel>(_serviceProvider, model);
     }
 
     public TDataContext CreateAndShow<TDataContext>() where TDataContext : class
@@ -114,7 +102,12 @@ public class DataContextFactory : IDataContextFactory
     }
     private TDataContext CreateConfigureAndShow<TDataContext, TModel>(TModel? model) where TDataContext : class
     {
-        var (dataContext, window) = GetCreateAndShowDataContextAndElementAccessor<TDataContext, TModel>(_serviceProvider, model);
+        (TDataContext dataContext, FrameworkElement frameworkElement) = ShowAndHandleDataContext<TDataContext, TModel>(_serviceProvider, model);
+
+        if (frameworkElement is not Window window)
+        {
+            throw new DataContextAssociatedElementCannotShowException(typeof(TDataContext));
+        }
 
         window.Show();
 
