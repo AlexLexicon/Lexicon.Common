@@ -33,7 +33,7 @@ public static class WpfApplicationExtensions
 
         public Task StartupAsync()
         {
-            DataContextFactory.CreateAndHandleDataContext<TDataContext, object>(App.Services, null);
+            DataContextFactory.CreateAndHandleDataContext<TDataContext, object, object, object>(App.Services);
 
             return Task.CompletedTask;
         }
@@ -45,7 +45,7 @@ public static class WpfApplicationExtensions
         public async Task StartupAsync()
         {
             var dispatcher = App.Services.GetRequiredService<Dispatcher>();
-            (_, FrameworkElement frameworkElement) = DataContextFactory.ShowAndHandleDataContext<TDataContext, object>(App.Services, null);
+            (_, FrameworkElement frameworkElement) = DataContextFactory.ShowAndHandleDataContext<TDataContext, object, object, object>(App.Services);
 
             if (frameworkElement is not Window window)
             {
