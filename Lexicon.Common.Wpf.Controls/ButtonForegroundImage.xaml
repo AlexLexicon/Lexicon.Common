@@ -7,6 +7,7 @@
     mc:Ignorable="d"
     d:DesignWidth="64"
     d:DesignHeight="64"
+    Padding="0"
     x:Name="xButtonForegroundImage"
     Background="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}">
     
