@@ -1,20 +1,19 @@
 ﻿using Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions;
 using Lexicon.Common.Wpf.DependencyInjection.Amenities.Abstractions.Services;
-using Lexicon.Common.Wpf.Dialogs;
 
 namespace Lexicon.Common.Wpf.DependencyInjection.Amenities.Services;
 public class WindowsDialogService : IWindowsDialogService
 {
-    public string? SaveFile() => WindowsDialogs.SaveFile();
+    public string? SaveFile() => Dialogs.WindowsDialogs.SaveFile();
     public string? SaveFile(string filePathAndName)
     {
         ArgumentNullException.ThrowIfNull(filePathAndName);
 
-        return WindowsDialogs.SaveFile(filePathAndName);
+        return Dialogs.WindowsDialogs.SaveFile(filePathAndName);
     }
     public string? SaveFile(SaveFileSettings settings)
     {
-        return WindowsDialogs.SaveFile(new Dialogs.Settings.SaveFileSettings
+        return Dialogs.WindowsDialogs.SaveFile(new Dialogs.SaveFileSettings
         {
             Title = settings.Title,
             FileName = settings.FileName,
@@ -24,18 +23,18 @@ public class WindowsDialogService : IWindowsDialogService
         });
     }
 
-    public string? OpenFile() => WindowsDialogs.OpenFile();
+    public string? OpenFile() => Dialogs.WindowsDialogs.OpenFile();
     public string? OpenFile(string initalDirectoryPath)
     {
         ArgumentNullException.ThrowIfNull(initalDirectoryPath);
 
-        return WindowsDialogs.OpenFile(initalDirectoryPath);
+        return Dialogs.WindowsDialogs.OpenFile(initalDirectoryPath);
     }
     public string? OpenFile(OpenFileSettings settings)
     {
         ArgumentNullException.ThrowIfNull(settings);
 
-        return WindowsDialogs.OpenFile(new Dialogs.Settings.OpenFileSettings
+        return Dialogs.WindowsDialogs.OpenFile(new Dialogs.OpenFileSettings
         {
             Title = settings.Title,
             FileName = settings.FileName,
@@ -46,18 +45,18 @@ public class WindowsDialogService : IWindowsDialogService
         });
     }
 
-    public string? SelectDirectory() => WindowsDialogs.SelectDirectory();
+    public string? SelectDirectory() => Dialogs.WindowsDialogs.SelectDirectory();
     public string? SelectDirectory(string initalDirectoryPath)
     {
         ArgumentNullException.ThrowIfNull(initalDirectoryPath);
 
-        return WindowsDialogs.SelectDirectory(initalDirectoryPath);
+        return Dialogs.WindowsDialogs.SelectDirectory(initalDirectoryPath);
     }
     public string? SelectDirectory(SelectDirectorySettings settings)
     {
         ArgumentNullException.ThrowIfNull(settings);
 
-        return WindowsDialogs.SelectDirectory(new Dialogs.Settings.SelectDirectorySettings
+        return Dialogs.WindowsDialogs.SelectDirectory(new Dialogs.SelectDirectorySettings
         {
             Title = settings.Title,
             InitialDirectory = settings.InitialDirectory,
