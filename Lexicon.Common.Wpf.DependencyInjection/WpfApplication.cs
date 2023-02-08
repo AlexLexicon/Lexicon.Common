@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace Lexicon.Common.Wpf.DependencyInjection;
 public sealed class WpfApplication
@@ -15,28 +14,25 @@ public sealed class WpfApplication
         return new WpfApplicationBuilder(appxaml);
     }
 
-    private readonly IConfiguration _configuration;
-    private readonly IServiceProvider _provider;
-
     internal WpfApplication(IConfigurationBuilder configurationBuilder, IServiceCollection services)
     {
         ArgumentNullException.ThrowIfNull(configurationBuilder);
         ArgumentNullException.ThrowIfNull(services);
 
-        _configuration = configurationBuilder.Build();
+        Configuration = configurationBuilder.Build();
 
-        services.TryAddSingleton(_configuration);
+        services.TryAddSingleton(Configuration);
 
-        _provider = services.BuildServiceProvider();
+        Services = services.BuildServiceProvider();
 
-        var appxaml = _provider.GetRequiredService<Application>();
+        var appxaml = Services.GetRequiredService<Application>();
 
         appxaml.Startup += Startup;
     }
 
-    public IConfiguration Configuration => _configuration;
+    public IConfiguration Configuration { get; }
 
-    public IServiceProvider Services => _provider;
+    public IServiceProvider Services { get; }
 
     private IWpfApplicationRun? ApplicationRun { get; set; }
 

@@ -11,7 +11,7 @@ public class RuleSetValidator<TRuleSet, TProperty> : AbstractValueValidator<TPro
         ValidationErrors = new List<string>();
         Validation = ValidateAndGetErrorMessages;
 
-        RuleFor(v => v.Value).UseRuleSet(ruleSet);
+        RuleFor(p => p.Value).UseRuleSet(ruleSet);
     }
 
     public IReadOnlyList<string> ValidationErrors { get; protected set; }

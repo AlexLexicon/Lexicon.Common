@@ -12,9 +12,9 @@ public static class RuleBuilderExtensions
 
         return ruleBuilder
             .UseRuleSet(ruleSet)
-            .WhenProperty(v => v is not null)
+            .WhenProperty(p => p is not null)
             .Null()
-            .WhenProperty(v => v is null);
+            .WhenProperty(p => p is null);
     }
     public static void UseRuleSetWhenNotNull<T, TProperty>(this IRuleBuilder<T, TProperty?> ruleBuilder, IRuleSet<TProperty> ruleSet, Action<IRuleBuilderOptions<TProperty?, TProperty>>? builder = null) where TProperty : struct
     {
@@ -40,7 +40,7 @@ public static class RuleBuilderExtensions
         ArgumentNullException.ThrowIfNull(ruleBuilder);
         ArgumentNullException.ThrowIfNull(ruleSet);
 
-        //I cant figure out how else to convert to a builder options
+        //i cant figure out how else to convert to a builder options
         var ruleBuilderOptions = ruleBuilder.Must(_ => true);
 
         ruleSet.Use(ruleBuilderOptions);

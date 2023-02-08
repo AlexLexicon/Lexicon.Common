@@ -1,71 +1,27 @@
 ﻿using FluentValidation;
+using FluentValidation.Validators;
 using Lexicon.Common.Validation.Amenities.PropertyValidators;
 using System.Diagnostics;
 
 namespace Lexicon.Common.Validation.Amenities.Extensions;
 public static class RuleBuilderExtensions
 {
-    public static IRuleBuilderOptions<T, TProperty> Guid<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder)
+    public static IRuleBuilderOptions<T, string?> Alphanumeric<T>(this IRuleBuilder<T, string?> ruleBuilder) => ruleBuilder.CreateAndSetValidator<AlphanumericPropertyValidator<T>, T, string?>();
+    public static IRuleBuilderOptions<T, string?> Digits<T>(this IRuleBuilder<T, string?> ruleBuilder) => ruleBuilder.CreateAndSetValidator<DigitsPropertyValidator<T>, T, string?>();
+    public static IRuleBuilderOptions<T, TProperty> Guid<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder) => ruleBuilder.CreateAndSetValidator<GuidPropertyValidator<T, TProperty>, T, TProperty>();
+    public static IRuleBuilderOptions<T, string?> Letters<T>(this IRuleBuilder<T, string?> ruleBuilder) => ruleBuilder.CreateAndSetValidator<LettersPropertyValidator<T>, T, string?>();
+    public static IRuleBuilderOptions<T, string?> NotAllWhitespaces<T>(this IRuleBuilder<T, string?> ruleBuilder) => ruleBuilder.CreateAndSetValidator<NotAllWhiteSpacesPropertyValidator<T>, T, string?>();
+    public static IRuleBuilderOptions<T, string?> NotAnyDigits<T>(this IRuleBuilder<T, string?> ruleBuilder) => ruleBuilder.CreateAndSetValidator<NotAnyDigitsPropertyValidator<T>, T, string?>();
+    public static IRuleBuilderOptions<T, string?> NotAnyWhiteSpace<T>(this IRuleBuilder<T, string?> ruleBuilder) => ruleBuilder.CreateAndSetValidator<NotAnyWhiteSpacePropertyValidator<T>, T, string?>();
+    public static IRuleBuilderOptions<T, string?> NotEscapedCharacters<T>(this IRuleBuilder<T, string?> ruleBuilder) => ruleBuilder.CreateAndSetValidator<NotEscapedCharactersPropertyValidator<T>, T, string?>();
+    public static IRuleBuilderOptions<T, TProperty> NotSimplyEmpty<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder) => ruleBuilder.CreateAndSetValidator<NotSimplyEmptyPropertyValidator<T, TProperty>, T, TProperty>();
+    public static IRuleBuilderOptions<T, TProperty> SimplyEmpty<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder) => ruleBuilder.CreateAndSetValidator<SimplyEmptyPropertyValidator<T, TProperty>, T, TProperty>();
+
+    private static IRuleBuilderOptions<T, TProperty> CreateAndSetValidator<TValidator, T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder) where TValidator : IPropertyValidator<T, TProperty>, new()
     {
         ArgumentNullException.ThrowIfNull(ruleBuilder);
 
-        return ruleBuilder.SetValidator(new GuidPropertyValidator<T, TProperty>());
-    }
-
-    public static IRuleBuilderOptions<T, string?> Digits<T>(this IRuleBuilder<T, string?> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new DigitsPropertyValidator<T>());
-    }
-
-    public static IRuleBuilderOptions<T, string?> Letters<T>(this IRuleBuilder<T, string?> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new LettersPropertyValidator<T>());
-    }
-
-    public static IRuleBuilderOptions<T, string?> Alphanumeric<T>(this IRuleBuilder<T, string?> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new AlphanumericPropertyValidator<T>());
-    }
-
-    public static IRuleBuilderOptions<T, TProperty> SimplyEmpty<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new SimplyEmptyPropertyValidator<T, TProperty>());
-    }
-
-    public static IRuleBuilderOptions<T, string?> NotAllWhitespaces<T>(this IRuleBuilder<T, string?> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new NotAllWhiteSpacesPropertyValidator<T>());
-    }
-
-    public static IRuleBuilderOptions<T, string?> NotAnyWhiteSpace<T>(this IRuleBuilder<T, string?> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new NotAnyWhiteSpacePropertyValidator<T>());
-    }
-
-    public static IRuleBuilderOptions<T, string?> NotAnyDigits<T>(this IRuleBuilder<T, string?> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new NotAnyDigitsPropertyValidator<T>());
-    }
-
-    public static IRuleBuilderOptions<T, TProperty> NotSimplyEmpty<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder)
-    {
-        ArgumentNullException.ThrowIfNull(ruleBuilder);
-
-        return ruleBuilder.SetValidator(new NotSimplyEmptyPropertyValidator<T, TProperty>());
+        return ruleBuilder.SetValidator(new TValidator());
     }
 
     public static IRuleBuilder<T, string?> Length<T>(this IRuleBuilder<T, string?> ruleBuilder, int? min, int? max)
