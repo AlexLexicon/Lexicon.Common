@@ -14,9 +14,11 @@ public class RuleSetValidator<TRuleSet, TProperty> : AbstractValueValidator<TPro
         RuleFor(v => v.Value).UseRuleSet(ruleSet);
     }
 
-    public IEnumerable<string> ValidationErrors { get; protected set; }
+    public IReadOnlyList<string> ValidationErrors { get; protected set; }
 
     public Func<TProperty, IEnumerable<string>> Validation { get; }
+
+    public bool IsValid => !ValidationErrors.Any();
 
     protected virtual IEnumerable<string> ValidateAndGetErrorMessages(TProperty instance)
     {

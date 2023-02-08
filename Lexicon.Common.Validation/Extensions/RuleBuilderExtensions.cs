@@ -16,6 +16,25 @@ public static class RuleBuilderExtensions
             .Null()
             .WhenProperty(v => v is null);
     }
+    public static void UseRuleSetWhenNotNull<T, TProperty>(this IRuleBuilder<T, TProperty?> ruleBuilder, IRuleSet<TProperty> ruleSet, Action<IRuleBuilderOptions<TProperty?, TProperty>>? builder = null) where TProperty : struct
+    {
+        ArgumentNullException.ThrowIfNull(ruleBuilder);
+        ArgumentNullException.ThrowIfNull(ruleSet);
+
+        ruleBuilder
+            .ChildRules(inLineValidator =>
+            {
+                IRuleBuilderOptions<TProperty?, TProperty> ruleBuilderOptions = inLineValidator
+                    .RuleFor(p => p!.Value)
+                    .UseRuleSet(ruleSet);
+
+                builder?.Invoke(ruleBuilderOptions);
+            })
+            .WhenProperty(p => p is not null)
+            .Null()
+            .WhenProperty(p => p is null);
+    }
+
     public static IRuleBuilderOptions<T, TProperty> UseRuleSet<T, TProperty>(this IRuleBuilder<T, TProperty> ruleBuilder, IRuleSet<TProperty> ruleSet)
     {
         ArgumentNullException.ThrowIfNull(ruleBuilder);
